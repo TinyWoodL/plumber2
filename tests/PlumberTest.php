@@ -8,7 +8,7 @@ class PlumberTest extends \PHPUnit\Framework\TestCase
     {
         $options = $this->getDefaultOption();
 
-        $plumber = new Plumber('start', $options);
+        // $plumber = new Plumber('start', $options);
     }
 
     protected function getDefaultOption()

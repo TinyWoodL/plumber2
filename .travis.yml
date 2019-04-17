@@ -10,6 +10,8 @@ install:
   - sudo apt-get install --force-yes redis-server
   - pecl install swoole
   - composer install
+  - redis-server &
+  - beanstalkd -l 0.0.0.0  -p 11300 &
 
 script:
   - vendor/bin/phpunit
