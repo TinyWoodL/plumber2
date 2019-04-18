@@ -1,14 +1,15 @@
 language: PHP
 
 php:
-  - '5.5'
   - '7.0'
   - '7.1'
 
 install:
   - sudo apt-get install -qq --force-yes beanstalkd
   - sudo apt-get install --force-yes redis-server
-  - pecl install swoole
+  - printf "\n" | pecl install swoole
+  - ini=$(php -i | grep "Loaded Configuration File" | awk '{print $5}')
+  - echo "extension=swoole.so" >> $ini
   - composer install
   - redis-server &
   - beanstalkd -l 0.0.0.0  -p 11300 &
