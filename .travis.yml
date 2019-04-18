@@ -1,7 +1,6 @@
 language: PHP
 
 php:
-  - '7.0'
   - '7.1'
 
 install:
@@ -9,8 +8,8 @@ install:
   - sudo apt-get install --force-yes redis-server
   - printf "\n" | pecl install swoole
   - ini=$(php -i | grep "Loaded Configuration File" | awk '{print $5}')
-  - echo $(ini)
-  - echo "extension=swoole.so" >> $(ini)
+  - echo $ini
+  - echo "extension=swoole.so" >> $ini
   - composer install
   - redis-server &
   - beanstalkd -l 0.0.0.0  -p 11300 &
