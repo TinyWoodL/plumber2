@@ -32,7 +32,9 @@
     "require-dev": {
         "ext-redis": "*",
         "swoft/swoole-ide-helper": "^4.2",
-        "phpunit/phpunit": "^6 || ^7 || ^8"
+        "phpunit/phpunit": "^6 || ^7 || ^8",
+        "phpunit/phpcov": "^5.0",
+        "php-coveralls/php-coveralls": "^2.0"
     },
     "bin": ["bin/plumber"]
 }

@@ -8,10 +8,12 @@ install:
   - sudo apt-get install --force-yes redis-server
   - printf "\n" | pecl install swoole
   - printf "\n" | pecl install redis
-  - ini=$(php -i | grep "Loaded Configuration File" | awk '{print $5}')
   - composer install
   - redis-server &
   - beanstalkd -l 0.0.0.0  -p 11300 &
-
+  - mkdir -p build/logs
 script:
   - vendor/bin/phpunit
+
+after_success:
+  - travis_retry php vendor/bin/php-coveralls
